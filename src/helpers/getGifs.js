@@ -4,6 +4,9 @@ export const getGifs = async( category ) => {
   const resp = await fetch( url );
   const { data } = await resp.json();
 
+  console.log(data);
+
+
   const gifs = data.map( img => ({
     //todo: validar title vacio
     id   : img.id,
@@ -11,7 +14,6 @@ export const getGifs = async( category ) => {
     url  : img.images.downsized_medium.url
   }));
 
-  // console.log(data);
 
   return gifs;
 
